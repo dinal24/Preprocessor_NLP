@@ -1,0 +1,5 @@
+#ignore list
+.idea
+.idea/
+*.pyc
+.DS_Store
