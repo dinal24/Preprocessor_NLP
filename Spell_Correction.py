@@ -39,7 +39,7 @@ def suggestions(word, user_input):
         str = user_input
         out = str.replace(user_input, dict.keys()[0]).lower()
     else:
-        out = max(dict.iteritems(), key=operator.itemgetter(1))[0]
+        out = max(dict.iteritems(), key=operator.itemgetter(1))[0].lower()
     return out
 
 def word2vec(word):
