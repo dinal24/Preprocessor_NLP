@@ -4,6 +4,7 @@ __author__ = 'dinal'
 import unittest
 from Normalize import removeRedundantWhiteSpaces
 from Normalize import toLowerCase
+from Normalize import removePunctuations
 
 class TestNormalize(unittest.TestCase):
     def test_removeRedundantWhiteSpaces(self):
@@ -15,6 +16,10 @@ class TestNormalize(unittest.TestCase):
 
     def test_toLowerCase_NonASCII(self):
         self.assertEqual(toLowerCase('Километ'), 'километ'.decode('utf-8'))
+
+    def test_removePunctuations(self):
+        self.assertEqual(removePunctuations('hello? are you there?'), 'hello are you there')
+        self.assertEqual(removePunctuations('!()-[]{};:"\,<>./?@#$%^&*_~'), '')
 
 
 if __name__ == '__main__':

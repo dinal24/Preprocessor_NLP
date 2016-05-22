@@ -8,5 +8,12 @@ def removeRedundantWhiteSpaces(str_input):
 def toLowerCase(str_input):
     return str_input.decode('utf-8').lower()
 
+def removePunctuations(str_input):
+    ret = []
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    for char in str_input:
+        if char not in punctuations:
+            ret.append(char)
 
+    return "".join(ret)
 
