@@ -12,7 +12,7 @@ def spellCorrect(user_input):
     for i in user_input:
         d = enchant.Dict("en_US")
         word = d.check(i)
-        if (word):
+        if (word==True):
             out_array.append(i)
         else:
             word = d.suggest(i)
