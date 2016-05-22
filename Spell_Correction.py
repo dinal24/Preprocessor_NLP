@@ -1,3 +1,5 @@
+__author__ = 'Januka'
+
 import enchant
 from collections import Counter
 from math import sqrt
