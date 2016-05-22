@@ -3,6 +3,7 @@ __author__ = 'Januka'
 import enchant
 from collections import Counter
 from math import sqrt
+import operator
 
 def spellCorrect(user_input):
     user_input = user_input.lower()
@@ -36,9 +37,9 @@ def suggestions(word, user_input):
 
     if (len(dict) == 1):
         str = user_input
-        out = str.replace(user_input, dict.keys()[0])
+        out = str.replace(user_input, dict.keys()[0]).lower()
     else:
-        out = user_input
+        out = max(dict.iteritems(), key=operator.itemgetter(1))[0]
     return out
 
 def word2vec(word):
