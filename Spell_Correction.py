@@ -1,31 +1,25 @@
 __author__ = 'Januka'
 
 import enchant
-import operator
-
 from collections import Counter
 from math import sqrt
+import operator
 
-from Normalize import toLowerCase
-from Normalize import removePunctuations
-from Normalize import removeRedundantWhiteSpaces
-
-def spellCorrect(str_input, language='en_US'):
-    str_input = removeRedundantWhiteSpaces(str_input)
-    str_input = toLowerCase(str_input)
-    str_input = removePunctuations(str_input).split(" ")
+def spellCorrect(user_input):
+    user_input = user_input.lower()
+    user_input = removePunctuations(user_input).split(" ")
     out_array = []
-    for word in str_input:
-        d = enchant.Dict(language)
-        isword = d.check(word)
-        if (isword):
-            out_array.append(word)
+    for i in user_input:
+        d = enchant.Dict("en_US")
+        word = d.check(i)
+        if (word==True):
+            out_array.append(i)
         else:
-            word_list = d.suggest(word)
-            out = suggestions(word_list, word)
+            word = d.suggest(i)
+            out = suggestions(word, i)
             out_array.append(out)
     output = ' '.join(out_array)
-
+    print output
     return output
 
 
@@ -49,12 +43,21 @@ def suggestions(word, user_input):
     return out
 
 def word2vec(word):
+
     cw = Counter(word)
     sw = set(cw)
     lw = sqrt(sum(c * c for c in cw.values()))
     return cw, sw, lw
 
 def cosdis(v1, v2):
+
     common = v1[1].intersection(v2[1])
     return sum(v1[0][ch] * v2[0][ch] for ch in common) / v1[2] / v2[2]
 
+def removePunctuations(input):
+    no_punct = ""
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    for char in input:
+        if char not in punctuations:
+            no_punct = no_punct + char
+    return no_punct
