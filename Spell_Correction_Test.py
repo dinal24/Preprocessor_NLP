@@ -6,8 +6,8 @@ from Spell_Correction import spellCorrect
 class TestSpellCorrection(unittest.TestCase):
     def test_pellCorrect(self):
         self.assertEqual(spellCorrect("hellp"), "help")
-        self.assertEqual(spellCorrect("hell"), "hell")
-        self.assertEqual(spellCorrect("helli"), "hell i")
+        self.assertEqual(spellCorrect("liddle"), "middle")
+        self.assertEqual(spellCorrect("littde"), "little")
 
 
 if __name__ == '__main__':

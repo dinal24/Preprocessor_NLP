@@ -10,13 +10,13 @@ from Normalize import toLowerCase
 from Normalize import removePunctuations
 from Normalize import removeRedundantWhiteSpaces
 
-def spellCorrect(str_input, language='en_US'):
+def spellCorrect(str_input):
     str_input = removeRedundantWhiteSpaces(str_input)
     str_input = toLowerCase(str_input)
     str_input = removePunctuations(str_input).split(" ")
     out_array = []
     for word in str_input:
-        d = enchant.Dict(language)
+        d = enchant.request_pwl_dict("words.txt")
         isword = d.check(word)
         if (isword):
             out_array.append(word)
@@ -40,8 +40,9 @@ def suggestions(word, user_input):
             dict[key_in_dict] = cos
         else:
             pass
-
-    if (len(dict) == 1):
+    if (len(dict) == 0):
+        out = user_input
+    elif (len(dict) == 1):
         str = user_input
         out = str.replace(user_input, dict.keys()[0]).lower()
     else:
