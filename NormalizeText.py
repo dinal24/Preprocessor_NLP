@@ -1,4 +1,4 @@
-__author = 'Mursith'
+__author__ = 'Mursith'
 
 import re as regex
 import string
