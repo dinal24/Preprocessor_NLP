@@ -1,14 +1,12 @@
-__author__ = 'Januka'
+__author__ = 'Januka Samaranayake'
 
 import unittest
 from Spell_Correction import spellCorrect
 
 class TestSpellCorrection(unittest.TestCase):
     def test_pellCorrect(self):
-        self.assertEqual(spellCorrect("hellp"), "help")
-        self.assertEqual(spellCorrect("liddle"), "middle")
-        self.assertEqual(spellCorrect("littde"), "little")
-
+        self.assertEqual(spellCorrect("tha"), "that")
+        self.assertEqual(spellCorrect("foq"), "for")
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSpellCorrection)

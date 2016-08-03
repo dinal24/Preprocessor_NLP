@@ -1,4 +1,4 @@
-__author__ = 'Januka'
+__author__ = 'Januka Samaranayake'
 
 import enchant
 import operator
@@ -28,7 +28,6 @@ def spellCorrect(str_input):
 
     return output
 
-
 def suggestions(word, user_input):
     dict = {}
     for i in word:
@@ -36,7 +35,7 @@ def suggestions(word, user_input):
         Va = word2vec(i)
         Vb = word2vec(user_input)
         cos = cosdis(Va, Vb)
-        if (cos > 0.85):
+        if (cos > 0.5):
             dict[key_in_dict] = cos
         else:
             pass

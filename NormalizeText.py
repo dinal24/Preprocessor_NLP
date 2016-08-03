@@ -127,7 +127,9 @@ contractions = {
   "cat-o'-nine-tails": "cat of nine tails",
   "jack-o'-lantern": "jack of the lantern",
   "will-o'-the-wisp": "will of the wisp",
-  "'twas":"it was"  
+  "'twas":"it was",
+  "wanna":"want to",
+  "gonna":"going to"
 }
 
 contractions_regex = regex.compile('(%s)' % '|'.join(contractions.keys()))
